@@ -1,6 +1,7 @@
 const konamiCode = document.createElement('p')
 const buttonFirst = document.createElement('button')
 const buttonSecond = document.createElement('button')
+const logo = document.querySelector('.konami-logo')
 
 const sequenceOneCheck = ['↑','↑','↓','↓','←','→','←','→','B','A','Enter']
 const sequenceTwoCheck = ['→','←','↓','↑','A','B','Enter']
@@ -56,19 +57,25 @@ document.addEventListener("keydown", function(event) {
     }
 
     if(checkIncorrectSequence(sequenceArray, sequence)) {
+
         sequenceArray = []
     }
 
     if(correctCode(sequenceArray, sequence)) {
         alert("You have unlocked the path, good for you")
-        //make code spin
+        logo.animate([
+            { transform: 'rotate(0deg)' },
+            { transform: 'rotate(360deg)' }
+          ], {
+            duration: 5000,
+            iterations: Infinity
+          })
         sequenceArray = []
     }
 
 });
 
 }
-
 
 function checkIncorrectSequence(currentSequence, sequence) {
     let number = 0
