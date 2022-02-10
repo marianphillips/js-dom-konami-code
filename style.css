@@ -12,6 +12,10 @@ body {
   width: 200px;
 }
 
+span {
+  color: black;
+}
+
 .combo {
   animation: spin 5s linear infinite;
 }
