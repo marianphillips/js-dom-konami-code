@@ -6,21 +6,23 @@ const logo = document.querySelector('.konami-logo')
 const sequenceOneCheck = ['↑','↑','↓','↓','←','→','←','→','B','A','Enter']
 const sequenceTwoCheck = ['→','←','↓','↑','A','B','Enter']
 
-buttonFirst.innerText = "Code A"
-buttonSecond.innerText = "Code B"
-
 document.body.append(konamiCode)
 konamiCode.append(buttonFirst, buttonSecond)
 
+konamiCode.style.fontSize = "40px"
+buttonFirst.style.fontSize = "25px"
+buttonSecond.style.fontSize = "25px"
+
+buttonFirst.innerText = "Code A"
+buttonSecond.innerText = "Code B"
+
 buttonFirst.addEventListener('click', function() {
-konamiCode.innerText = "↑ ↑ ↓ ↓ ← → ← → B A Enter"
-konamiCode.style.fontSize = "30px" 
+konamiCode.innerText = "↑ ↑ ↓ ↓ ← → ← → B A Enter" 
 keyLogic(sequenceOneCheck)
 })
 
 buttonSecond.addEventListener('click', function() {
 konamiCode.innerText = "→ ← ↓ ↑ A B Enter"
-konamiCode.style.fontSize = "30px" 
 keyLogic(sequenceTwoCheck)
 })
 
