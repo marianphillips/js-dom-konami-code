@@ -33,18 +33,13 @@ document.addEventListener("keydown", function(event) {
     sequenceArray.push(event.key)
    
     if(checkIncorrectSequence(sequenceArray, sequence)) {
+        logo.classList.remove("combo")
         sequenceArray = []
     }
 
     if(correctCode(sequenceArray, sequence)) {
         alert("You have unlocked the path, good for you")
-        logo.animate([
-            { transform: 'rotate(0deg)' },
-            { transform: 'rotate(360deg)' }
-          ], {
-            duration: 5000,
-            iterations: Infinity
-          })
+        logo.classList.add("combo")
         sequenceArray = []
     }
 
