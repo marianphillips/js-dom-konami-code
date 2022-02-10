@@ -3,8 +3,8 @@ const buttonFirst = document.createElement('button')
 const buttonSecond = document.createElement('button')
 const logo = document.querySelector('.konami-logo')
 
-const sequenceOneCheck = ['↑','↑','↓','↓','←','→','←','→','B','A','Enter']
-const sequenceTwoCheck = ['→','←','↓','↑','A','B','Enter']
+const sequenceOneCheck = ['ArrowUp','ArrowUp','ArrowDown','ArrowDown','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','b','a','Enter']
+const sequenceTwoCheck = ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp','a','b','Enter']
 
 document.body.append(konamiCode)
 konamiCode.append(buttonFirst, buttonSecond)
@@ -30,36 +30,9 @@ keyLogic(sequenceTwoCheck)
 function keyLogic(sequence) {
 let sequenceArray = []
 document.addEventListener("keydown", function(event) {
-    if (event.key === "ArrowUp") {
-        sequenceArray.push('↑')
-    }
-
-    if (event.key === "ArrowDown") {
-        sequenceArray.push('↓')
-    }
-
-    if (event.key === "ArrowLeft") {
-        sequenceArray.push('←')
-    }
-
-    if (event.key === "ArrowRight") {
-        sequenceArray.push('→')
-    }
-
-    if (event.key === "b") {
-        sequenceArray.push('B')
-    }
-
-    if (event.key === "a") {
-        sequenceArray.push('A')
-    }
-
-    if (event.key === "Enter") {
-        sequenceArray.push('Enter')
-    }
-
+    sequenceArray.push(event.key)
+   
     if(checkIncorrectSequence(sequenceArray, sequence)) {
-
         sequenceArray = []
     }
 
